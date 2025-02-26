@@ -1,17 +1,25 @@
 package seleniumstudy;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver; 
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions; 
 
 
 public class Seleniumstudy {
 	public static void main(String[] args) throws InterruptedException, IOException  {
 		// TODO Auto-generated method stu
- WebDriver driver = new ChromeDriver();
+		
+		
+		ChromeOptions opt1 = new ChromeOptions();
+		opt1.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
+WebDriver driver  = new ChromeDriver(opt1);
+
 
 /*driver.get("https://mail.google.com/");*/
 driver.get("https://paytm.com/");
@@ -86,6 +94,8 @@ Thread.sleep(2000);
 	Thread.sleep(2000);
 
 	driver.findElement(By.xpath("//input[@name='submit']")).click();
+	
+
 
 	driver.quit();
 	
